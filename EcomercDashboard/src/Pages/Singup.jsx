@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 const Singup = () => {
+  const navigate = useNavigate();
     const [name,setName]=useState('');
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-    const navigate = useNavigate();
     useEffect(()=>{
+
       const auth = localStorage.getItem('user'); 
       if(auth) {
         navigate('/');
@@ -15,7 +16,7 @@ const Singup = () => {
    
   
     const submitform = async ()=>{
-       let result = fetch('http://localhost:8047',{
+       let result = await fetch('http://localhost:8047/Signup',{
         method:'post',
         body:JSON.stringify({name,email,password}),
         headers:{'content-Type': 'application/json'},
@@ -23,7 +24,7 @@ const Singup = () => {
         result = await (await result).json();
     console.log(result);
     localStorage.setItem('user',JSON.stringify(result));
-    Navigate('/')
+    navigate('/')
     
     }
   return (

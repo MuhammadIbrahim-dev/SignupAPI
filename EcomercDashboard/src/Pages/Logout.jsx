@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Logout = () => {
+  const auth = localStorage.getItem('user');
+  if(auth){
+    
+  } 
   return (
     <div>
       

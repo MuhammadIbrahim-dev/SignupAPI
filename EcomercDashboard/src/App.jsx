@@ -7,6 +7,7 @@ import Products from './Pages/Products'
 import Header from './assets/Header'
 import PrivateComponent from './assets/PrivateComponent'
 import Logout from './Pages/Logout'
+import Login from './Pages/Login'
 
 function App() {
 
@@ -20,8 +21,10 @@ function App() {
         <Route path='/Product' element={<Products/>}/>
         </Route>
         <Route path='/Signup'element={<Singup/>}/>
-        <Route path='/logout' element={<Logout/>}></Route>
+        <Route path='/logout' element={<Logout/>}/>
+        <Route path='/login' element={<Login/>}/>
         
+
       </Routes>
     </div>
     </>
